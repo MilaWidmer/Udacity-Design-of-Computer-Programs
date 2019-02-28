@@ -13,7 +13,6 @@ def n_ary(f):
     f(x, y, z) = f(x, f(y, z)), etc. Also allow f(x) = x."""
     def n_ary_f(x, *args):
         return x if not args else f(x, n_ary_f(*args))
-    update_wrapper(n_ary_f, f)
     return n_ary_f
 
 @n_ary # is the same as: seq = n_ary(seq)
